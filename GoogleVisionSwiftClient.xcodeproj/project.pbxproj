@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B0422B421F3EEAEE000535BF /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0422B411F3EEAEE000535BF /* Result.swift */; };
-		B0422B4A1F3EF578000535BF /* Screen Shot 2017-08-12 at 3.35.52 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = B0422B491F3EF578000535BF /* Screen Shot 2017-08-12 at 3.35.52 PM.png */; };
 		B076CC7B1F2C6024006D05C3 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076CC7A1F2C6024006D05C3 /* Client.swift */; };
 		B0A7220F1F2C5CF200FCDF86 /* GoogleVisionSwiftClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A722051F2C5CF200FCDF86 /* GoogleVisionSwiftClient.framework */; };
 		B0A722141F2C5CF200FCDF86 /* GoogleVisionSwiftClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A722131F2C5CF200FCDF86 /* GoogleVisionSwiftClientTests.swift */; };
@@ -27,7 +26,6 @@
 
 /* Begin PBXFileReference section */
 		B0422B411F3EEAEE000535BF /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		B0422B491F3EF578000535BF /* Screen Shot 2017-08-12 at 3.35.52 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2017-08-12 at 3.35.52 PM.png"; path = "../../../../Desktop/Screen Shot 2017-08-12 at 3.35.52 PM.png"; sourceTree = "<group>"; };
 		B076CC7A1F2C6024006D05C3 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		B076CC7D1F2C61DF006D05C3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		B0A722051F2C5CF200FCDF86 /* GoogleVisionSwiftClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleVisionSwiftClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +96,6 @@
 		B0A722121F2C5CF200FCDF86 /* GoogleVisionSwiftClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				B0422B491F3EF578000535BF /* Screen Shot 2017-08-12 at 3.35.52 PM.png */,
 				B0A722131F2C5CF200FCDF86 /* GoogleVisionSwiftClientTests.swift */,
 				B0A722151F2C5CF200FCDF86 /* Info.plist */,
 			);
@@ -209,7 +206,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0422B4A1F3EF578000535BF /* Screen Shot 2017-08-12 at 3.35.52 PM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
