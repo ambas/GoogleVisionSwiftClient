@@ -69,9 +69,9 @@ public struct Client {
                 let textAnnotations = annotationContainer["textAnnotations"] as? [[String: Any]] else {
                 if let errorDetailDict = jsonDict["error"] as? [String: Any],
                     let errorDetail = errorDetailDict["message"] as? String {
-                    success(.error(ExtractDataError(kind: .error(error: errorDetail))))
-                } else if let _ = jsonDict["responses"] {
-                    success(.error(ExtractDataError(kind: .error(error: "Cant find any word"))))
+                    success(.error(ExtractDataError(kind: .error(errorDetail: errorDetail))))
+                } else if jsonDict["responses"] != nil {
+                    success(.error(ExtractDataError(kind: .error(errorDetail: "Cant find any word"))))
                 } else {
                     success(.error(ExtractDataError(kind: .jsonFormatError)))
                 }
