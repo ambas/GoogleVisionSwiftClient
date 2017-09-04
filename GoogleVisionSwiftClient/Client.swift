@@ -98,5 +98,5 @@ public enum ErrorKind {
     case responseDataError
     case serializationError
     case jsonFormatError
-    case error(erorDetail: String)
+    case error(errorDetail: String)
 }
