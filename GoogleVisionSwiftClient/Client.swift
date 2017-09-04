@@ -66,9 +66,16 @@ public struct Client {
             guard
                 let response = jsonDict["responses"] as? [Any],
                 let annotationContainer = response.first as? [String: Any],
-            let textAnnotations = annotationContainer["textAnnotations"] as? [[String: Any]] else {
+                let textAnnotations = annotationContainer["textAnnotations"] as? [[String: Any]] else {
+                if let errorDetailDict = jsonDict["error"] as? [String: Any],
+                    let errorDetail = errorDetailDict["message"] as? String {
+                    success(.error(ExtractDataError(kind: .error(erorDetail: errorDetail))))
+                } else if let _ = jsonDict["responses"] {
+                    success(.error(ExtractDataError(kind: .error(erorDetail: "Cant find any word"))))
+                } else {
                     success(.error(ExtractDataError(kind: .jsonFormatError)))
-                    return
+                }
+                return
             }
 
             let wordDetectedResult = textAnnotations
@@ -87,6 +94,7 @@ public struct ExtractDataError: Error {
         case responseDataError
         case serializationError
         case jsonFormatError
+        case error(erorDetail: String)
     }
 
     let kind: ErrorKind

@@ -9,7 +9,7 @@
 import XCTest
 @testable import GoogleVisionSwiftClient
 
-let googleAPIKey = ""
+let googleAPIKey = "AIzaSyD8Y79TacoQbgGubc0-yqvBLMa-OpmmIik"
 
 class GoogleVisionSwiftClientTests: XCTestCase {
 
@@ -30,7 +30,7 @@ class GoogleVisionSwiftClientTests: XCTestCase {
         let ex = self.expectation(description: "SomeService does stuff and runs the callback closure")
         let bundle = Bundle(for: type(of: self))
 
-        let image = UIImage(named: "Screen Shot 2017-08-12 at 3.35.52 PM", in: bundle, compatibleWith: nil)!
+        let image = UIImage(named: "Scared-Cat-1.jpg", in: bundle, compatibleWith: nil)!
         client.detectWords(fromImage: image) { (result) in
             switch result {
             case let .success(detectedWords):
@@ -41,7 +41,7 @@ class GoogleVisionSwiftClientTests: XCTestCase {
 
             ex.fulfill()
         }
-        self.waitForExpectations(timeout: 20, handler: nil)
+        self.waitForExpectations(timeout: 100, handler: nil)
     }
 
 }
