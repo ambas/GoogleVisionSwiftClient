@@ -90,12 +90,13 @@ public struct Client {
 }
 
 public struct ExtractDataError: Error {
-    public enum ErrorKind {
-        case responseDataError
-        case serializationError
-        case jsonFormatError
-        case error(erorDetail: String)
-    }
 
     let kind: ErrorKind
+}
+
+public enum ErrorKind {
+    case responseDataError
+    case serializationError
+    case jsonFormatError
+    case error(erorDetail: String)
 }
