@@ -90,7 +90,7 @@ public struct Client {
 }
 
 public struct ExtractDataError: Error {
-    enum ErrorKind {
+    public enum ErrorKind {
         case responseDataError
         case serializationError
         case jsonFormatError
