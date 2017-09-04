@@ -91,7 +91,7 @@ public struct Client {
 
 public struct ExtractDataError: Error {
 
-    let kind: ErrorKind
+    public let kind: ErrorKind
 }
 
 public enum ErrorKind {
