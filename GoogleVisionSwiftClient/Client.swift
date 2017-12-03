@@ -57,7 +57,7 @@ public struct Client {
         }
         task.resume()
     }
-    
+
     private func responseHandler(data: Data?, success: @escaping SuccessHandler) {
         guard let data = data else {
             success(.error(ExtractDataError(kind: .responseDataError)))
@@ -85,12 +85,12 @@ public struct Client {
                 }
                 return
         }
-        
+
         let wordDetectedResult = textAnnotations
             .map { annotation in
                 return (annotation["description"] as? String) ?? ""
         }
-        
+
         success(.success(wordDetectedResult))
     }
 }
