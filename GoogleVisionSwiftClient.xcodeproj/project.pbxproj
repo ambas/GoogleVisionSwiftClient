@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		152DBC9E1FD3EDFE005C30EF /* sample JP.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 152DBC9D1FD3EDFE005C30EF /* sample JP.jpg */; };
 		B01C69AD1F5D7DA90084BDBC /* Scared-Cat-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B01C69AC1F5D7D2E0084BDBC /* Scared-Cat-1.jpg */; };
-		B01C69B01F5D7FD70084BDBC /* IMG_4074.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B01C69AF1F5D7FA60084BDBC /* IMG_4074.JPG */; };
 		B0422B421F3EEAEE000535BF /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0422B411F3EEAEE000535BF /* Result.swift */; };
 		B076CC7B1F2C6024006D05C3 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076CC7A1F2C6024006D05C3 /* Client.swift */; };
 		B0A7220F1F2C5CF200FCDF86 /* GoogleVisionSwiftClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A722051F2C5CF200FCDF86 /* GoogleVisionSwiftClient.framework */; };
@@ -27,8 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		152DBC9D1FD3EDFE005C30EF /* sample JP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sample JP.jpg"; path = "../../../Desktop/sample JP.jpg"; sourceTree = "<group>"; };
 		B01C69AC1F5D7D2E0084BDBC /* Scared-Cat-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Scared-Cat-1.jpg"; sourceTree = "<group>"; };
-		B01C69AF1F5D7FA60084BDBC /* IMG_4074.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_4074.JPG; sourceTree = "<group>"; };
 		B0422B411F3EEAEE000535BF /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B076CC7A1F2C6024006D05C3 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		B076CC7D1F2C61DF006D05C3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		B0A722121F2C5CF200FCDF86 /* GoogleVisionSwiftClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				B01C69AF1F5D7FA60084BDBC /* IMG_4074.JPG */,
+				152DBC9D1FD3EDFE005C30EF /* sample JP.jpg */,
 				B01C69AC1F5D7D2E0084BDBC /* Scared-Cat-1.jpg */,
 				B0A722131F2C5CF200FCDF86 /* GoogleVisionSwiftClientTests.swift */,
 				B0A722151F2C5CF200FCDF86 /* Info.plist */,
@@ -212,7 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B01C69B01F5D7FD70084BDBC /* IMG_4074.JPG in Resources */,
+				152DBC9E1FD3EDFE005C30EF /* sample JP.jpg in Resources */,
 				B01C69AD1F5D7DA90084BDBC /* Scared-Cat-1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

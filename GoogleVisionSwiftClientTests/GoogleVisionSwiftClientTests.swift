@@ -9,11 +9,28 @@
 import XCTest
 @testable import GoogleVisionSwiftClient
 
-let googleAPIKey = ""
+private struct Config {
+    static let GoogleAPIKey = ""
+    static let ExpectedDetectedWordCount = 47
+    static let UnexpectedDetectedWordCount = 10
+    static let CorrectImageName = "sample JP.jpg"
+    static let WrongImageName = "Scared-Cat-1.jpg"
+    static let CanNotFindWordText = "Cant find any word"
+}
+
+typealias ConditionWordCount = (Int) -> Bool
 
 class GoogleVisionSwiftClientTests: XCTestCase {
 
-    let client = Client(googleAPIKey: googleAPIKey)
+    let client = Client(googleAPIKey: Config.GoogleAPIKey)
+    
+    var correctImage: UIImage {
+        return image(imageName: Config.CorrectImageName)
+    }
+    
+    var wrongImage: UIImage {
+        return image(imageName: Config.WrongImageName)
+    }
 
     override func setUp() {
         super.setUp()
@@ -21,27 +38,64 @@ class GoogleVisionSwiftClientTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testDetectCorrectWordsCount() {
+        testDetectWordCount(image: correctImage) { $0 == Config.ExpectedDetectedWordCount }
     }
-
-    func testDetectWords() {
-        let ex = self.expectation(description: "SomeService does stuff and runs the callback closure")
+    
+    func testDetectWrongWordsCount() {
+        testDetectWordCount(image: correctImage) { $0 != Config.UnexpectedDetectedWordCount }
+    }
+    
+    func testPerformOnMainThread() {
+        let ex = self.expectation(description: "")
+        client.detectWords(fromImage: correctImage) { _ in 
+            XCTAssertTrue(Thread.isMainThread, "")
+            ex.fulfill()
+        }
+        self.waitForExpectations(timeout: 20, handler: nil)
+    }
+    
+    func testCanNotFindAnyWordInImage() {
+        let ex = self.expectation(description: "")
+        client.detectWords(fromImage: wrongImage) { (result) in
+            switch result {
+            case .success:
+                XCTFail()
+            case let .error(error):
+                print(error.localizedDescription)
+                switch error.kind {
+                case let .error(detail):
+                    XCTAssertTrue(detail == Config.CanNotFindWordText)
+                default:
+                    XCTFail()
+                }
+            }
+            
+            ex.fulfill()
+        }
+        self.waitForExpectations(timeout: 20, handler: nil)
+    }
+    
+    fileprivate func image(imageName: String) -> UIImage {
         let bundle = Bundle(for: type(of: self))
-
-        let image = UIImage(named: "Scared-Cat-1.jpg", in: bundle, compatibleWith: nil)!
+        let image = UIImage(named: imageName, in: bundle, compatibleWith: nil)!
+        return image
+    }
+    
+    fileprivate func testDetectWordCount(image: UIImage, condition: @escaping ConditionWordCount) {
+        let ex = self.expectation(description: "")
         client.detectWords(fromImage: image) { (result) in
             switch result {
             case let .success(detectedWords):
-                XCTAssert(detectedWords.count == 83)
-            case .error:
-                XCTAssert(false)
+                XCTAssertTrue(condition(detectedWords.count))
+            case let .error(error):
+                print(error)
+                XCTFail()
             }
-
+            
             ex.fulfill()
         }
-        self.waitForExpectations(timeout: 100, handler: nil)
+        self.waitForExpectations(timeout: 20, handler: nil)
     }
 
 }

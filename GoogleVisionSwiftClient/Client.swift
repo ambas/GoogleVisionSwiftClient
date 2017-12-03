@@ -50,23 +50,31 @@ public struct Client {
 
         request.httpBody = data
 
-        let task = session.dataTask(with: request) { (data, _, _) in
-            guard let data = data else {
-                success(.error(ExtractDataError(kind: .responseDataError)))
-                return
+        let task = session.dataTask(with: request) { data, _, _ in
+            DispatchQueue.main.async {
+                self.responseHandler(data: data, success: success)
             }
-            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
-                success(.error(ExtractDataError(kind: .serializationError)))
-                return
-            }
-            guard let jsonDict = json as? [String: Any] else {
-                success(.error(ExtractDataError(kind: .jsonFormatError)))
-                return
-            }
-            guard
-                let response = jsonDict["responses"] as? [Any],
-                let annotationContainer = response.first as? [String: Any],
-                let textAnnotations = annotationContainer["textAnnotations"] as? [[String: Any]] else {
+        }
+        task.resume()
+    }
+    
+    private func responseHandler(data: Data?, success: @escaping SuccessHandler) {
+        guard let data = data else {
+            success(.error(ExtractDataError(kind: .responseDataError)))
+            return
+        }
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
+            success(.error(ExtractDataError(kind: .serializationError)))
+            return
+        }
+        guard let jsonDict = json as? [String: Any] else {
+            success(.error(ExtractDataError(kind: .jsonFormatError)))
+            return
+        }
+        guard
+            let response = jsonDict["responses"] as? [Any],
+            let annotationContainer = response.first as? [String: Any],
+            let textAnnotations = annotationContainer["textAnnotations"] as? [[String: Any]] else {
                 if let errorDetailDict = jsonDict["error"] as? [String: Any],
                     let errorDetail = errorDetailDict["message"] as? String {
                     success(.error(ExtractDataError(kind: .error(errorDetail: errorDetail))))
@@ -76,16 +84,14 @@ public struct Client {
                     success(.error(ExtractDataError(kind: .jsonFormatError)))
                 }
                 return
-            }
-
-            let wordDetectedResult = textAnnotations
-                .map { annotation in
-                    return (annotation["description"] as? String) ?? ""
-                }
-
-            success(.success(wordDetectedResult))
         }
-        task.resume()
+        
+        let wordDetectedResult = textAnnotations
+            .map { annotation in
+                return (annotation["description"] as? String) ?? ""
+        }
+        
+        success(.success(wordDetectedResult))
     }
 }
 
