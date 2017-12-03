@@ -2,7 +2,7 @@
 //  Client.swift
 //  GoogleVisionSwiftClient
 //
-//  Created by Ambas Chobsanti (Lazada Group) on 7/29/17.
+//  Created by Ambas Chobsanti on 7/29/17.
 //  Copyright © 2017 Ambas. All rights reserved.
 //
 
