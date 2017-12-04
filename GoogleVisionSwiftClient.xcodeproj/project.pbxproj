@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		152DBC9E1FD3EDFE005C30EF /* sample JP.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 152DBC9D1FD3EDFE005C30EF /* sample JP.jpg */; };
+		157AC79C1FD4F93400BFBE9E /* sample JP.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 157AC79B1FD4F93400BFBE9E /* sample JP.jpg */; };
 		B01C69AD1F5D7DA90084BDBC /* Scared-Cat-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B01C69AC1F5D7D2E0084BDBC /* Scared-Cat-1.jpg */; };
 		B0422B421F3EEAEE000535BF /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0422B411F3EEAEE000535BF /* Result.swift */; };
 		B076CC7B1F2C6024006D05C3 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076CC7A1F2C6024006D05C3 /* Client.swift */; };
@@ -27,7 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		152DBC9D1FD3EDFE005C30EF /* sample JP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sample JP.jpg"; path = "../../../Desktop/sample JP.jpg"; sourceTree = "<group>"; };
+		157AC79B1FD4F93400BFBE9E /* sample JP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sample JP.jpg"; sourceTree = "<group>"; };
 		B01C69AC1F5D7D2E0084BDBC /* Scared-Cat-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Scared-Cat-1.jpg"; sourceTree = "<group>"; };
 		B0422B411F3EEAEE000535BF /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B076CC7A1F2C6024006D05C3 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		B0A722121F2C5CF200FCDF86 /* GoogleVisionSwiftClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				152DBC9D1FD3EDFE005C30EF /* sample JP.jpg */,
+				157AC79B1FD4F93400BFBE9E /* sample JP.jpg */,
 				B01C69AC1F5D7D2E0084BDBC /* Scared-Cat-1.jpg */,
 				B0A722131F2C5CF200FCDF86 /* GoogleVisionSwiftClientTests.swift */,
 				B0A722151F2C5CF200FCDF86 /* Info.plist */,
@@ -212,7 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				152DBC9E1FD3EDFE005C30EF /* sample JP.jpg in Resources */,
+				157AC79C1FD4F93400BFBE9E /* sample JP.jpg in Resources */,
 				B01C69AD1F5D7DA90084BDBC /* Scared-Cat-1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
